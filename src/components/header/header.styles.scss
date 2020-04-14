@@ -1,0 +1,25 @@
+
+.header{
+  border-bottom: 1px solid grey;
+  margin-bottom: 25px;
+  display: flex;
+  justify-content: space-between;
+  .logo{
+    height: 100%;
+    width: 30px;
+    padding: 20px;
+  }
+  .header-title{
+    .header-title-content{
+      font-family: 'Lobster', cursive;
+    }
+  }
+  .options{
+    padding: 20px;
+    .option{
+      padding: 10px;
+      cursor: pointer;
+      font-family: 'Open Sans Condensed', sans-serif;
+    }
+  }
+}
