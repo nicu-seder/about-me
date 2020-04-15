@@ -1,0 +1,22 @@
+.landing-page-content {
+  display: flex;
+  flex-direction: column;
+
+  .title {
+    font-family: 'Lobster', cursive;
+    margin-bottom: 20px;
+    align-self: center;
+    color:grey;
+  }
+
+  .logo-container {
+    display: flex;
+    margin-bottom: 20px;
+    margin-top: 20px;
+
+    .logo{
+      height: 100%;
+      width: 750px;
+    }
+  }
+}

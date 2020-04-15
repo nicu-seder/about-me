@@ -4,14 +4,20 @@
   margin-bottom: 25px;
   display: flex;
   justify-content: space-between;
-  .logo{
+  .logo-container{
     height: 100%;
-    width: 30px;
-    padding: 20px;
+
+    .logo{
+      height: 100%;
+      width: 40px;
+      padding: 10px;
+    }
   }
+
   .header-title{
     .header-title-content{
       font-family: 'Lobster', cursive;
+      color: rgba(41,41,41,0.73);
     }
   }
   .options{
@@ -20,6 +26,8 @@
       padding: 10px;
       cursor: pointer;
       font-family: 'Open Sans Condensed', sans-serif;
+      text-decoration:none;
+      color: black;
     }
   }
 }
