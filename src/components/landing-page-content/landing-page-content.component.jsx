@@ -9,7 +9,7 @@ const LandingPageContent = (props)=>{
             <div className='logo-container'>
                 <Logo className={'logo'}/>
             </div>
-            <h2 className='title'>Please sign in</h2>
+            <h2 className='title'>Please sign in to see your photos</h2>
         </div>
     )
 };

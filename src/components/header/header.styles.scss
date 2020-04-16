@@ -1,32 +1,43 @@
 
-.header{
+.header {
   border-bottom: 1px solid grey;
   margin-bottom: 25px;
   display: flex;
   justify-content: space-between;
-  .logo-container{
+  align-content: center;
+
+  .logo-container {
+    display: flex;
     height: 100%;
+    width: auto;
+    justify-content: center;
 
-    .logo{
+
+    .logo {
       height: 100%;
-      width: 40px;
-      padding: 10px;
+      width: 55px;
+      padding-top: 8px;
+      padding-left: 10px;
+
     }
   }
 
-  .header-title{
-    .header-title-content{
+  .header-title {
+    .header-title-content {
       font-family: 'Lobster', cursive;
-      color: rgba(41,41,41,0.73);
+      color: rgba(41, 41, 41, 0.73);
     }
   }
-  .options{
-    padding: 20px;
-    .option{
+
+  .options {
+    display: flex;
+    padding: 15px;
+
+    .option {
       padding: 10px;
       cursor: pointer;
       font-family: 'Open Sans Condensed', sans-serif;
-      text-decoration:none;
+      text-decoration: none;
       color: black;
     }
   }

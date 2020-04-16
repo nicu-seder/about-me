@@ -1,0 +1,23 @@
+.sign-in{
+  display: flex;
+  flex-direction: column;
+  width: 450px;
+  padding: 10px;
+  .sign-in-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 10px;
+
+    .button-container{
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+  .title{
+    margin: 10px;
+  }
+  .span{
+    margin: 10px;
+  }
+}
