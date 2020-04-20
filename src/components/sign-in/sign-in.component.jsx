@@ -1,8 +1,8 @@
 import React from "react";
 import FormInput from "../../components/form-input/form-input.component";
 import CustomButton from "../custom-button/custom-button.component";
-import {withRouter} from 'react-router-dom';
-import {auth, googleProvider} from '../../firebase/firebase.utils'
+// import {withRouter} from 'react-router-dom';
+import {auth, signInWithGoogle} from '../../firebase/firebase.utils'
 
 import './sign-in.styles.scss'
 
@@ -16,30 +16,41 @@ class SignIn extends React.Component {
         }
     }
 
-    //This is a function that does the sign in with google. If it succeeds then it redirect to a page
-    //If this function is called, it tries to perform the sign in transaction which returns a promise
-    //If the promise is resolved, 'then' is exectuted otherwise 'catch'
-    signInWithGoogle = async () => (
-        await auth.signInWithPopup(googleProvider).then((result) => {
-            this.props.history.push('/');
-            console.log("User Credentials",result);
-        }).catch((error) => {
-            console.log("Sign in didn't work")
-        })
-    );
+    // This is a function that does the sign in with google. If it succeeds then it redirect to a page
+    // If this function is called, it tries to perform the sign in transaction which returns a promise
+    // If the promise is resolved, 'then' is exectuted otherwise 'catch'
+    // signInWithGoogle = async () => (
+    //     await auth.signInWithPopup(googleProvider).then((result) => {
+    //         this.props.history.push('/');
+    //         console.log("User Credentials",result);
+    //     }).catch((error) => {
+    //         console.log("Sign in didn't work")
+    //     })
+    // );
 
-    handleOnSubmit = (event) => (
-        event.preventDefault()
-    );
+    handleOnSubmit = async (event) => {
+        event.preventDefault();
+        const {email, password} = this.state;
+        try {
+            await auth.signInWithEmailAndPassword(email, password);
+            this.setState({
+                email: '',
+                password: ''
+            });
+        } catch (e) {
+            console.log(e);
+        }
+        this.setState({email: '', password: ''})
+    };
+
+
 
     handleOnChange = async (event) => {
         const {name, value} = event.target;
         //setState is an async operation. First we wait to finish and then we do the next operation.
         //the tag where the event happens is identified by the name property
         //once the input changes the state is also changed
-        await this.setState({[name]: value});
-
-        console.log(this.state.email, this.state.password);
+        this.setState({[name]: value});
     };
 
     render() {
@@ -72,8 +83,8 @@ class SignIn extends React.Component {
                         The component CustomButton doesn't have an event onClick, but as we gave it here in
                         the properties, it will be destructured and spread in the target component, where the
                         button tag will have an event handler added*/}
-                        <CustomButton type='submit'>Sign In</CustomButton>
-                        <CustomButton onClick={this.signInWithGoogle}>Sign In With Google</CustomButton>
+                        <CustomButton type={'submit'}>Sign In</CustomButton>
+                        <CustomButton onClick={signInWithGoogle}>Sign In With Google</CustomButton>
                     </div>
                 </form>
             </div>
@@ -82,4 +93,4 @@ class SignIn extends React.Component {
 
 }
 
-export default withRouter(SignIn);
+export default SignIn;
